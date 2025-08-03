@@ -9,10 +9,10 @@ final class AlunoController
     public static function cadastro() : void
     {
         $model = new Aluno();
-        //$model->id = 1;
-        $model->ra = 223;
-        $model->curso = 'C++';
-        $model->nome = 'José';
+        //$model->Id = 1;
+        $model->RA = 444;
+        $model->Curso = 'Java';
+        $model->Nome = 'João';
         $model->save();
 
         echo "Aluno inserido";

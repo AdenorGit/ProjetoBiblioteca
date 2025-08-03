@@ -13,7 +13,7 @@ final class AlunoDAO extends DAO
 
     public function save(Aluno $model) : Aluno
     {
-        return ($model->id == null) ? $this->insert($model) : $this->update($model);
+        return ($model->Id == null) ? $this->insert($model) : $this->update($model);
     }
 
     public function insert(Aluno $model) : Aluno
@@ -21,12 +21,12 @@ final class AlunoDAO extends DAO
         $sql = "INSERT INTO Aluno (Nome, RA, Curso) VALUES (?, ?, ?)";
 
         $stmt = parent::$conexao->prepare($sql);
-        $stmt->bindValue(1, $model->nome);
-        $stmt->bindValue(2, $model->ra);
-        $stmt->bindValue(3, $model->curso);
+        $stmt->bindValue(1, $model->Nome);
+        $stmt->bindValue(2, $model->RA);
+        $stmt->bindValue(3, $model->Curso);
         $stmt->execute();
 
-        $model->id = parent::$conexao->lastInsertId();
+        $model->Id = parent::$conexao->lastInsertId();
 
         return $model;
     }
@@ -36,21 +36,21 @@ final class AlunoDAO extends DAO
         $sql = "UPDATE Aluno SET Nome=?, RA=?, Curso=? WHERE Id=?";
 
         $stmt = parent::$conexao->prepare($sql);
-        $stmt->bindValue(1, $model->nome);
-        $stmt->bindValue(2, $model->ra);
-        $stmt->bindValue(3, $model->curso);
-        $stmt->bindValue(4, $model->id);
+        $stmt->bindValue(1, $model->Nome);
+        $stmt->bindValue(2, $model->RA);
+        $stmt->bindValue(3, $model->Curso);
+        $stmt->bindValue(4, $model->Id);
         $stmt->execute();
 
         return $model;
     }
 
-    public function selectById(int $id) : ?Aluno
+    public function selectById(int $Id) : ?Aluno
     {
         $sql = "SELECT * FROM Aluno WHERE Id=?";
 
         $stmt = parent::$conexao->prepare($sql);
-        $stmt->bindValue(1, $id);
+        $stmt->bindValue(1, $Id);
         $stmt->execute();
 
         return $stmt->fetchObject("Add\Model\Aluno");
@@ -66,12 +66,12 @@ final class AlunoDAO extends DAO
         return $stmt->fetchAll(DAO::FETCH_CLASS, "App\Model\Aluno");
     }
 
-    public function delete(int $id) : bool
+    public function delete(int $Id) : bool
     {
         $sql = "DELETE FROM Aluno WHERE Id=?";
 
         $stmt = parent::$conexao->prepare($sql);
-        $stmt->bindValue(1, $id);
+        $stmt->bindValue(1, $Id);
         return $stmt->execute();
 
     }
