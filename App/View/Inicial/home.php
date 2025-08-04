@@ -8,31 +8,7 @@
   </head>
   <body>
     <div><?php include VIEWS . "/Includes/menu.php" ?></div>
-
-    <h3>Lista de Alunos</h3>
-
-    <a href="/aluno/cadastro">Novo Aluno</a>
-
-    <table class="table">
-      <thead>
-        <tr>
-          <th scope="col">ID</th>
-          <th scope="col">NOME</th>
-          <th scope="col">CURSO</th>
-        </tr>
-      </thead>
-      <tbody>
-      <?php foreach ($lista as $aluno): ?>
-        <tr>
-          <td> <?= $aluno->Id ?> </td>
-          <td> <a href="/aluno/cadastro?id=<?= $aluno->Id ?>"><?= $aluno->Nome ?></a></td>
-          <td> <?= $aluno->Curso ?> </td>  
-          <td> <a href="/aluno/delete?id=<?= $aluno->Id ?>">Remover</a></td>      
-        </tr>
-      <?php endforeach ?>
-      </tbody>
-    </table>
-
+    <h3>Tela Inicial</h3>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous"></script>
   </body>
 </html>

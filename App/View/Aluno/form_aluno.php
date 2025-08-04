@@ -1,11 +1,39 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    
-</body>
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Sistema de Biblioteca</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+  </head>
+  <body>
+    <div><?php include VIEWS . "/Includes/menu.php" ?></div>
+
+    <h3>Cadastro de Aluno</h3>
+
+    <form action="/aluno/cadastro" method="post" class="p-5">
+
+      <input type="hidden" name="id" value="<?= $model->Id ?>">
+
+      <div class="mb-3">
+        <label for="nome" class="form-lable">Nome:</label>
+        <input type="text" value="<?= $model->Nome ?>" class="form-control" name="nome" id="nome">
+      </div>
+
+      <div class="mb-3">
+        <label for="ra" class="form-lable">RA:</label>
+        <input type="text" value="<?= $model->RA ?>" class="form-control" name="ra" id="ra">
+      </div>
+
+      <div class="mb-3">
+        <label for="curso" class="form-lable">Curso:</label>
+        <input type="text" value="<?= $model->Curso ?>" class="form-control" name="curso" id="curso">
+      </div>
+
+      <button type="submit" class="btn btn-success">Salvar</button>
+
+    </form>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous"></script>
+  </body>
 </html>

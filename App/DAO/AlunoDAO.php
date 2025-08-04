@@ -53,7 +53,7 @@ final class AlunoDAO extends DAO
         $stmt->bindValue(1, $Id);
         $stmt->execute();
 
-        return $stmt->fetchObject("Add\Model\Aluno");
+        return $stmt->fetchObject("App\Model\Aluno");
     }
 
     public function select() : array
